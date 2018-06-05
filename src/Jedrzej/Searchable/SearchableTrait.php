@@ -120,11 +120,7 @@ trait SearchableTrait
     protected function buildConstraints($values)
     {
         if (is_array($values)) {
-            $constraints = [];
-            foreach ($values as $value) {
-                $constraints[] = Constraint::make($value);
-            }
-            return $constraints;
+            return ConstraintGroup::make($values);
         } else {
             return Constraint::make($values);
         }
